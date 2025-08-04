@@ -22,7 +22,7 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(0px);
     }
     to {
         opacity: 1;
@@ -1076,15 +1076,43 @@ body {
         grid-template-columns: 1fr; /* Stack stat cards */
     }
 
-    .locations-grid {
-        grid-template-columns: 1fr; /* Stack location cards */
-        grid-template-rows: auto; /* Auto height for stacked cards */
-        height: auto;
-    }
+  .locations {
+    padding: 100px 0;
+    background: white;
+    overflow: hidden;
+    position: relative;
+}
 
-    .location-card.large, .location-card.tall {
-        grid-row: auto; /* Reset grid-row for mobile */
-    }
+.locations-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.location-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    will-change: transform;
+    z-index: 1;
+}
+
+.location-card.large {
+    grid-row: 1 / 3;
+    height: 100%;
+}
+
+.location-card.tall {
+    grid-row: 1 / 3;
+    height: 100%;
+}
+
 
     .testimonial-carousel {
         flex-direction: column; /* Stack testimonials */
